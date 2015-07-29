@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @price.amount %>
+</p>
+
+<p>
+  <strong>Date bought:</strong>
+  <%= @price.date_bought %>
+</p>
+
+<p>
+  <strong>Item:</strong>
+  <%= @price.item_id %>
+</p>
+
+<%= link_to 'Edit', edit_price_path(@price) %> |
+<%= link_to 'Back', prices_path %>
