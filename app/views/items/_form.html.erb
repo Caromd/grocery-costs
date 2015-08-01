@@ -13,11 +13,11 @@
 
   <div class="field">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :autocomplete => :off %>
   </div>
   <div class="field">
     <%= f.label :type_id %><br>
-    <%= f.text_field :type_id %>
+    <%= f.text_field :type_id, :autocomplete => :off %>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -2,4 +2,5 @@ class Item < ActiveRecord::Base
   belongs_to :type
   has_many :prices
   validates_presence_of :name, :type_id
+  default_scope  { order(:type_id, :name) }
 end

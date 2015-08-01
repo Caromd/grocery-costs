@@ -13,3 +13,6 @@
  *= require_tree .
  *= require_self
  */
+ #action_link {
+     font-size: 8px;
+ }
