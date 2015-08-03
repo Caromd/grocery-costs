@@ -13,15 +13,15 @@
 
   <div class="field">
     <%= f.label :amount %><br>
-    <%= f.text_field :amount %>
+    <%= f.text_field :amount, :autocomplete => :off  %>
   </div>
   <div class="field">
     <%= f.label :date_bought %><br>
-    <%= f.date_select :date_bought %>
+    <%= f.date_select :date_bought, :autocomplete => :off  %>
   </div>
   <div class="field">
     <%= f.label :item_id %><br>
-    <%= f.text_field :item_id %>
+    <%= f.collection_select(:item_id, Item.all, :id, :name) %>
   </div>
   <div class="actions">
     <%= f.submit %>

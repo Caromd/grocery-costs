@@ -14,5 +14,16 @@
  *= require_self
  */
  #action_link {
-     font-size: 8px;
+  font-size: 8px;
  }
+ 
+ #amount {
+  text-align: right;
+ }
+ h1 {
+  font-size: 20px;
+ }
+ 
+ table td, table th {
+    padding-right: 10px; /* cellpadding */
+}

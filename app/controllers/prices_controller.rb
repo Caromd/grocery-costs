@@ -5,6 +5,10 @@ class PricesController < ApplicationController
   # GET /prices.json
   def index
     @prices = Price.all
+#    @items = Item.all
+#    @items = @prices.items
+#    @items = @prices.items.find(params[:item_id])
+#    @tweet = @zombie.tweets.find(params[:id])
   end
 
   # GET /prices/1
@@ -28,7 +32,7 @@ class PricesController < ApplicationController
 
     respond_to do |format|
       if @price.save
-        format.html { redirect_to @price, notice: 'Price was successfully created.' }
+        format.html { redirect_to prices_path, notice: 'Price was successfully created.' }
         format.json { render :show, status: :created, location: @price }
       else
         format.html { render :new }

@@ -5,9 +5,9 @@
 <table>
   <thead>
     <tr>
-      <th>Amount</th>
-      <th>Date bought</th>
       <th>Item</th>
+      <th>Amount</th>
+      <th>Date Bought</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,12 +15,11 @@
   <tbody>
     <% @prices.each do |price| %>
       <tr>
-        <td><%= price.amount %></td>
+        <td ><%= price.item_id %></td>
+        <td id=amount><%= number_with_precision(price.amount, precision: 2) %></td>
         <td><%= price.date_bought %></td>
-        <td><%= price.item_id %></td>
-        <td><%= link_to 'Show', price %></td>
-        <td><%= link_to 'Edit', edit_price_path(price) %></td>
-        <td><%= link_to 'Destroy', price, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td id=action_link><%= link_to 'Edit', edit_price_path(price) %></td>
+        <td id=action_link><%= link_to 'Destroy', price, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
