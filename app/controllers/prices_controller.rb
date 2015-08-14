@@ -1,14 +1,16 @@
 class PricesController < ApplicationController
   before_action :set_price, only: [:show, :edit, :update, :destroy]
 
+  def summary
+    @prices = Price.all
+    @items = Item.all
+    @types = Type.all
+  end
+  
   # GET /prices
   # GET /prices.json
   def index
     @prices = Price.all
-#    @items = Item.all
-#    @items = @prices.items
-#    @items = @prices.items.find(params[:item_id])
-#    @tweet = @zombie.tweets.find(params[:id])
   end
 
   # GET /prices/1

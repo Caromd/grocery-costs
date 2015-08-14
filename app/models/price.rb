@@ -6,4 +6,8 @@ class Price < ActiveRecord::Base
   default_scope  { order(:date_bought => :desc) }
   default_scope { includes(:item) }
   scope :items_by_name, -> { items.order(name: :asc) }
+  
+  def subtotal
+    amount
+  end
 end

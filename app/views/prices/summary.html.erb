@@ -1,0 +1,43 @@
+<h1 class="page_title">Monthly Summary</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Item</th>
+      <th>Total</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% grand_total = 0 %>
+    <% @types.each do |type| %>
+      <% type_subtotal = 0 %>
+      <% @items.each do |item| %>
+        <% item_subtotal = 0 %>
+         <% @prices.each do |price| %>
+            <% item_subtotal += price.amount if price.item_id == item.id %>
+         <% end %> 
+         <% if item_subtotal != 0 && item.type_id == type.id %>
+          <tr>
+            <td ><%= item.name %></td>
+            <td id=amount><%= number_with_precision(item_subtotal, precision: 2) %></td>
+            <% type_subtotal += item_subtotal if item.type_id == type.id %>
+          </tr>
+        <% end %>
+      <% end %>
+        <tr id=type_total>
+          <td><%= type.name.upcase %></td>
+          <td id=amount><%= number_with_precision(type_subtotal, precision: 2) %></td>
+          <% grand_total += type_subtotal %>
+        </tr>
+    <% end %>        
+    <tr id=grand_total>
+      <td><%= 'MONTH TOTAL:' %></td>
+      <td id=amount><%= number_with_precision(grand_total, precision: 2) %></td>
+    </tr>
+    
+  </tbody>
+</table>
+
+<br>

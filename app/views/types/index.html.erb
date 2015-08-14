@@ -1,20 +1,25 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Types</h1>
+<h1 class="index_title">TYPES</h1>
 
-<table>
-  <tbody>
-    <% @types.each do |type| %>
-      <tr>
-        <td><%= type.name %></td>
-        <td><%= type.id %></td>
-        <td id=action_link><%= link_to 'Edit', edit_type_path(type) %></td>
-        <td id=action_link><%= link_to 'Destroy', type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<% @types.each do |type| %>
+  <div id="index_wrapper">
+    <div class="row">
+      <div class="index_item">  
+        <p><%= link_to type.name, edit_type_path(type.id) %></p>
+      </div>
+      <div class="trash">
+        <p><%= link_to(content_tag(:i,nil,class: 'fa fa-trash-o'), type, method: :delete, data: { confirm: "Are you sure?" }) %></p>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<div id="index_wrapper">
+  <div id="form">
+    <%= form_for([@type, @types.build]) do |f| %>
+	    <%= f.text_field :name, placeholder: "Add New Type" %>
+	    <%= f.submit %>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Type', new_type_path %>
+  </div>
+</div>

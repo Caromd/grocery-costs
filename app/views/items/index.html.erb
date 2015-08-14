@@ -1,28 +1,26 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Items</h1>
+<h1 class="index_title">ITEMS</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th align="left">Type</th>
-      <th align="left">Item</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<% @items.each do |item| %>
+  <div id="index_wrapper">
+    <div class="row">
+      <div class="index_item">  
+        <p><%= link_to item.name, edit_item_path(item.id) %></p>
+	    </div>
+      <div class="trash">
+        <p><%= link_to(content_tag(:i,nil,class: 'fa fa-trash-o'), item, method: :delete, data: { confirm: "Are you sure?" }) %></p>      
+      </div>
+    </div>
+  </div>
+<% end %>
 
-  <tbody>
-    <% @items.each do |item| %>
-      <tr>
-        <td><%= item.type.name.upcase + "(" + item.type_id.to_s + ")" %></td>
-        <td><%= item.name %></td>
-        <td id=action_link><%= link_to 'Edit', edit_item_path(item) %></td>
-        <td id=action_link><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<div id="index_wrapper">
+  <div id="form">
+      <%= form_for([@item, @items.build]) do |f| %>
+	      <%= f.text_field :name, placeholder: "Add New Item" %>
+	      <%= f.collection_select(:type_id, Type.all, :id, :name) %>
+	    <%= f.submit %>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Item', new_item_path %>
+  </div>
+</div>
