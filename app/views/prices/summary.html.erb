@@ -1,14 +1,8 @@
-<h1 class="page_title">Monthly Summary</h1>
+<h1 class="index_title">MONTHLY SUMMARY</h1>
+
+<h1><%= select_month(Date.today, field_name: 'start') %><%= select_year(Date.today, start_year: 2010) %></h1>
 
 <table>
-  <thead>
-    <tr>
-      <th>Item</th>
-      <th>Total</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
   <tbody>
     <% grand_total = 0 %>
     <% @types.each do |type| %>
@@ -26,7 +20,7 @@
           </tr>
         <% end %>
       <% end %>
-        <tr id=type_total>
+        <tr id="type_total", class="total_box">
           <td><%= type.name.upcase %></td>
           <td id=amount><%= number_with_precision(type_subtotal, precision: 2) %></td>
           <% grand_total += type_subtotal %>

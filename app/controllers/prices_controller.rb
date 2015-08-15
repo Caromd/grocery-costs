@@ -3,7 +3,10 @@ class PricesController < ApplicationController
 #  before_action :set_item, only: [:index]
 
   def summary
-    @prices = Price.all
+    # need to convert the date parameters in the summary view to correct format for search
+#    search_date = params[:search_date]
+#    @prices = Price.find_by_search_date(search_date)
+@prices = Price.all
     @items = Item.all
     @types = Type.all
   end

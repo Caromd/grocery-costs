@@ -14,6 +14,10 @@
  *= require_self
  */
  
+  $white_opaque: rgba(250, 250, 250, .3);
+ $white_opaque_text: rgba(250, 250, 250, .6);
+ $dark: #1F7972;
+ 
  /* MY STYLING */
  
  #action_link {
@@ -22,6 +26,7 @@
  
  #amount {
   text-align: right;
+  width: 30px;
  }
  
  h1 {
@@ -34,15 +39,25 @@
 }*/
 
 #type_total {
-  font-size: 20px;
+  font-size: 16px;
   color: blue;
   font-weight: bold;
+}
+
+.total_box {
+	background: $white_opaque;
+	margin: 3em auto 0 auto;
+  	border-radius: 7px;
+	-webkit-box-shadow: 0 0 4px 3px rgba(0,0,0,.3);
+	box-shadow: 0 0 4px 4px rgba(0,0,0,.03);
+	padding: 1em 0;
  }
  
 #grand_total {
-  font-size: 30px;
+  font-size: 20px;
   color: red;
   font-weight: bold;
+  
  }
 
 /* --- */
@@ -145,7 +160,8 @@ body {
 				font-weight: 100;
 			    font-size: 20px;
 			    font-color: $dark;
-			}}
+			}
+		}
 		.trash {
 			width: 10%;
 			float: left;

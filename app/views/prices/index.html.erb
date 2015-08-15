@@ -2,19 +2,30 @@
 
 <h1 class="index_title">Prices</h1>
 
-<table>
-  <tbody id="index_wrapper">
-    <% @prices.each do |price| %>
-      <tr class="row">
-        <td class="index_item"><%= price.item_id %></td>
-        <td class="index_item", id=amount><%= number_with_precision(price.amount, precision: 2) %></td>
-        <td class="index_item"><%= price.date_bought %></td>
-        <td class="trash"><p><%= link_to(content_tag(:i,nil,class: 'fa fa-trash-o'), price, method: :delete, data: { confirm: "Are you sure?" }) %></p></td>
-      </tr>
+<% @prices.each do |price| %>
+  <div id="index_wrapper">
+    <div class="row">
+      <div class="index_item">
+        <%= price.date_bought %>
+        <%= price.item_id %>
+	      <%= link_to number_with_precision(price.amount, precision: 2), edit_price_path(price.id), class: "amount" %>
+	    </div>
+      <div class="trash">
+        <p><%= link_to(content_tag(:i,nil,class: 'fa fa-trash-o'), price, method: :delete, data: { confirm: "Are you sure?" }) %></p>      
+      </div>
+    </div>
+  </div>
+<% end %>
+
+
+<div id="index_wrapper">
+  <div id="form">
+    <%= form_for([@price, @prices.build]) do |f| %>
+	    <%= f.text_field :amount, :autocomplete => :off, placeholder: "Add New Price" %>
+	    <%= f.submit %>
+      <br>
+	    <%= f.collection_select(:item_id, Item.all.order('name'), :id, :name) %>
+	    <%= f.date_select :date_bought, :autocomplete => :off %>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Price', new_price_path %>
+  </div>
+</div>
