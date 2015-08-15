@@ -1,5 +1,6 @@
 class PricesController < ApplicationController
   before_action :set_price, only: [:show, :edit, :update, :destroy]
+#  before_action :set_item, only: [:index]
 
   def summary
     @prices = Price.all
@@ -11,6 +12,7 @@ class PricesController < ApplicationController
   # GET /prices.json
   def index
     @prices = Price.all
+#    @item = Item.find(@prices.item_id)
   end
 
   # GET /prices/1
@@ -71,6 +73,10 @@ class PricesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_price
       @price = Price.find(params[:id])
+    end
+    
+    def set_item
+      @item = Item.find(params[:item_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -1,25 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<h1 class="page_title">Prices</h1>
+<h1 class="index_title">Prices</h1>
 
 <table>
-  <thead>
-    <tr>
-      <th>Item</th>
-      <th>Amount</th>
-      <th>Date Bought</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+  <tbody id="index_wrapper">
     <% @prices.each do |price| %>
-      <tr>
-        <td ><%= price.item_id %></td>
-        <td id=amount><%= number_with_precision(price.amount, precision: 2) %></td>
-        <td><%= price.date_bought %></td>
-        <td id=action_link><%= link_to 'Edit', edit_price_path(price) %></td>
-        <td id=action_link><%= link_to 'Destroy', price, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <tr class="row">
+        <td class="index_item"><%= price.item_id %></td>
+        <td class="index_item", id=amount><%= number_with_precision(price.amount, precision: 2) %></td>
+        <td class="index_item"><%= price.date_bought %></td>
+        <td class="trash"><p><%= link_to(content_tag(:i,nil,class: 'fa fa-trash-o'), price, method: :delete, data: { confirm: "Are you sure?" }) %></p></td>
       </tr>
     <% end %>
   </tbody>
