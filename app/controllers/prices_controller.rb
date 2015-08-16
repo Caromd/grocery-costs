@@ -6,9 +6,22 @@ class PricesController < ApplicationController
     # need to convert the date parameters in the summary view to correct format for search
 #    search_date = params[:search_date]
 #    @prices = Price.find_by_search_date(search_date)
-@prices = Price.all
-    @items = Item.all
-    @types = Type.all
+#    search_date = DateTime.new(params[:input_year],params[:input_month])
+#    dt = DateTime.new(params[:input_year],params[:input_month],1)
+    input_year = params[:year]
+    input_month = params[:month]
+    if input_year === nil || input_month === nil
+      @prices = Price.all
+            @items = Item.all
+      @types = Type.all
+    elsif condition
+      dt = DateTime.new(input_year,input_month,1)
+      bom = dt.beginning_of_month
+      eom = dt.end_of_month
+      @prices = Price.where("date_bought >= ? and date_bought <= ?", bom, eom)
+      @items = Item.all
+      @types = Type.all
+    end
   end
   
   # GET /prices
@@ -84,6 +97,6 @@ class PricesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def price_params
-      params.require(:price).permit(:amount, :date_bought, :item_id)
+      params.require(:price).permit(:amount, :date_bought, :item_id, :year, :month)
     end
 end

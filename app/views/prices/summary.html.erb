@@ -1,7 +1,12 @@
 <h1 class="index_title">MONTHLY SUMMARY</h1>
 
-<h1><%= select_month(Date.today, field_name: 'start') %><%= select_year(Date.today, start_year: 2010) %></h1>
+<%= form_tag("/summary", method: :get) do %>
+  <%= select_year(Date.today) %>
+  <%= select_month(Date.today) %>
+  <%= submit_tag("Summarise") %>
+<% end %>
 
+<% if params[:year] === nil && params[:month] === nil %>
 <table>
   <tbody>
     <% grand_total = 0 %>
@@ -33,5 +38,5 @@
     
   </tbody>
 </table>
-
+<% end %>
 <br>
