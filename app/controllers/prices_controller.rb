@@ -2,6 +2,10 @@ class PricesController < ApplicationController
   before_action :set_price, only: [:show, :edit, :update, :destroy]
 #  before_action :set_item, only: [:index]
 
+  def input
+#    render :summary
+  end
+
   def summary
     # need to convert the date parameters in the summary view to correct format for search
 #    search_date = params[:search_date]
@@ -10,6 +14,7 @@ class PricesController < ApplicationController
 #    dt = DateTime.new(params[:input_year],params[:input_month],1)
     input_year = params[:year]
     input_month = params[:month]
+    notice = params[:year].to_s + params[:month].to_s
     if input_year === nil || input_month === nil
       @prices = Price.all
             @items = Item.all
