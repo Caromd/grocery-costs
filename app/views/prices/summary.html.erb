@@ -1,6 +1,15 @@
-<h1 class="index_title">MONTHLY SUMMARY FOR <%= params[:year] %></h1>
+<p id="notice"><%= notice %></p>
 
-<% if params[:year] === nil && params[:month] === nil %>
+<%= form_tag(summary_path, method: :get) do %>
+  <p>
+    <%= select_month params[:month] %>
+    <%= select_year params[:year] %>
+    <%= submit_tag "Summarise", :name => nil %>
+  </p>
+<% end %>
+
+<h1 class="index_title">MONTHLY SUMMARY FOR <%= params[:year] %> <%= params[:month] %></h1>
+
 <table>
   <tbody>
     <% grand_total = 0 %>
@@ -32,5 +41,5 @@
     
   </tbody>
 </table>
-<% end %>
+
 <br>
