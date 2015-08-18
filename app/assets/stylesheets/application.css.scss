@@ -29,6 +29,8 @@
   width: 30px;
  }
  
+
+ 
  h1 {
   font-size: 20px;
  }
@@ -46,11 +48,11 @@
 
 .total_box {
 	background: $white_opaque;
-	margin: 3em auto 0 auto;
-  	border-radius: 7px;
+	margin: .5em auto 1em auto;
+  	border-radius: 1px;
 	-webkit-box-shadow: 0 0 4px 3px rgba(0,0,0,.3);
-	box-shadow: 0 0 4px 4px rgba(0,0,0,.03);
-	padding: 1em 0;
+	box-shadow: 0 0 2px 2px rgba(0,0,0,.03);
+	padding: 0.5em 0;
  }
  
 #grand_total {
@@ -161,6 +163,7 @@ body {
 			    font-size: 20px;
 			    font-color: $dark;
 			}
+			.amount {width: 50%; text-align: right;}
 		}
 		.trash {
 			width: 10%;
@@ -177,36 +180,7 @@ body {
 			}
 		}
 	}
-	#form {
-		margin-top: 2em;
-		padding: 0 5%;
-		input[type="text"] {
-			width: 50%;
-			margin-right: 2%;
-			display: inline-block;
-			outline: none;
-			background: rgba(250,250,250,.4);
-			border: none;
-			height: 40px;
-			border-radius: 4px;
-			padding: 1em 2em;
-		}
-		input[type="submit"] {
-			background: rgba(250,250,250,.4);
-			outline: none;
-			border: none;
-			height: 40px;
-			border-radius: 4px;
-			width: 25%;
-			display: inline-block;
-			transition: all .4s ease-in-out;
-			cursor: pointer;
-			&:hover {
-				background: $dark;
-			}
-		}
-		::-webkit-input-placeholder { color: $dark; }
-	}
+
 }
 
 .links {
@@ -227,8 +201,8 @@ label {
 	color: $dark;
 }
 input[type="text"], textarea {
-	width: 100%;
-	margin: .5em 2% 1em 0;
+	width: 80%;
+	margin: 0.5em 2% 1em 20px;
 	display: inline-block;
 	outline: none;
 	background: rgba(250,250,250,.4);
@@ -237,6 +211,30 @@ input[type="text"], textarea {
 	border-radius: 4px;
 	padding: 1em 2em;
 }
+/* CD START */
+#item_type_id, #price_item_id {
+	width: 40%;
+	margin: .5em 2% 1em 20px;
+	display: inline-block;
+	outline: none;
+	background: rgba(250,250,250,.4);
+	border: none;
+	height: 40px;
+/*	width: 200px;*/
+	border-radius: 4px;
+	padding: 1em 2em;
+}
+
+
+#summary_wrapper {
+	.summary_row {width: 100%;padding-left: 50px;
+		.summary_item {	width: 50%;	float: left;}
+		.summary_amount {width: 50%; text-align: right;}
+	}
+}
+
+/* CD */
+
 textarea {
 	height: 200px;
 }
@@ -251,6 +249,7 @@ input[type="submit"] {
 	transition: all .4s ease-in-out;
 	cursor: pointer;
 	color: $dark;
+	margin: .5em 2% 1em 20px;
 	&:hover {
 		background: $dark;
 		color: white;

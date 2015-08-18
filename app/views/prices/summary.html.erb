@@ -10,11 +10,10 @@
   </p>
 <% end %>
 
-<h1 class="index_title">MONTHLY SUMMARY FOR <%= params[:month] %> <%= params[:year] %></h1>
+<h1 class="index_title">MONTHLY SUMMARY FOR <%= params[:month] %> / <%= params[:year] %></h1>
+<br>
 
 <% if params[:month] != nil && params[:month] != "" %>
-<table>
-  <tbody>
     <% grand_total = 0 %>
     <% @types.each do |type| %>
       <% type_subtotal = 0 %>
@@ -24,25 +23,28 @@
             <% item_subtotal += price.amount if price.item_id == item.id %>
          <% end %> 
          <% if item_subtotal != 0 && item.type_id == type.id %>
-          <tr>
-            <td ><%= item.name %></td>
-            <td id=amount><%= number_with_precision(item_subtotal, precision: 2) %></td>
-            <% type_subtotal += item_subtotal if item.type_id == type.id %>
-          </tr>
+          <div id="summary_wrapper">
+            <div class="summary_row">
+              <i class="summary_item"><%= item.name %></i>
+              <i class="summary_amount"><%= number_with_precision(item_subtotal, precision: 2)%></i>
+              <% type_subtotal += item_subtotal if item.type_id == type.id %>
+            </div>
+          </div>
         <% end %>
       <% end %>
-        <tr id="type_total", class="total_box">
-          <td><%= type.name.upcase %></td>
-          <td id=amount><%= number_with_precision(type_subtotal, precision: 2) %></td>
-          <% grand_total += type_subtotal %>
-        </tr>
+        <div id="summary_wrapper", class="total_box">
+          <div class="summary_row">
+            <i class="summary_item"><%= type.name.upcase %></i>
+            <i class="summary_amount"> <%= number_with_precision(type_subtotal, precision: 2) %></i>
+            <% grand_total += type_subtotal %>
+          </div>
+        </div>
     <% end %>        
-    <tr id=grand_total>
-      <td><%= 'MONTH TOTAL:' %></td>
-      <td id=amount><%= number_with_precision(grand_total, precision: 2) %></td>
-    </tr>
-    
-  </tbody>
-</table>
+    <div id="summary_wrapper", class="total_box">
+      <div class="summary_row">
+        <i class="summary_item"><%= 'MONTH TOTAL:' %></i>
+        <i class="summary_amount"><%= number_with_precision(grand_total, precision: 2) %></i>
+      </div>
+    </div>
 <% end %>
 <br>

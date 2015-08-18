@@ -18,7 +18,7 @@
 <div id="index_wrapper">
   <div id="form">
       <%= form_for([@item, @items.build]) do |f| %>
-	      <%= f.text_field :name, placeholder: "Add New Item" %>
+	      <%= f.text_field :name, placeholder: "New Item..." %>
 	      <%= f.collection_select(:type_id, Type.all, :id, :name) %>
 	    <%= f.submit %>
     <% end %>
