@@ -4,36 +4,21 @@ class PricesController < ApplicationController
 
 
   def summary
-    flash[:notice] = 'Year: ' + params[:year].to_s
-    params.permit(:date)
-    params[:year] = 2015 if params[:year] === nil
-    params[:month] = 8 if params[:month] === nil   
-    dt = DateTime.new(params[:year], params[:month],1)
-    bom = dt.beginning_of_month
-    eom = dt.end_of_month
-    @prices = Price.where("date_bought >= ? and date_bought <= ?", bom, eom)
-#    @prices = Price.summary(params[:year], params[:month])
-    @items = Item.all
-    @types = Type.all 
-    
-    # need to convert the date parameters in the summary view to correct format for search
-#    input_year = params[:year]
-#    input_month = params[:month]
-
-#    notice = params[:year].to_s + params[:month].to_s
-
-#    if input_year === nil || input_month === nil
-#      @prices = Price.all
-#            @items = Item.all
-#      @types = Type.all
-#    elsif condition
-#      dt = DateTime.new(input_year,input_month,1)
-#      bom = dt.beginning_of_month
-#      eom = dt.end_of_month
-#      @prices = Price.where("date_bought >= ? and date_bought <= ?", bom, eom)
-#      @items = Item.all
-#      @types = Type.all
-#    end
+#    if (params[:month] != "" && params[:year] != "")  && (params[:month] != nil && params[:year] != nil)
+    if (params[:month] != "" && params[:month] != nil)
+      month=params[:month].to_i
+      year=params[:year].to_i
+      dt = DateTime.new(year, month,1)
+      bom = dt.beginning_of_month
+      eom = dt.end_of_month
+      @prices = Price.where("date_bought >= ? and date_bought <= ?", bom, eom)
+#     @prices = Price.summary(params[:year], params[:month])
+      @items = Item.all
+      @types = Type.all
+    else  
+      flash[:alert] = "Please enter month and year to summarise"
+      #redirect_to @summary
+    end
   end
   
   # GET /prices
@@ -109,6 +94,6 @@ class PricesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def price_params
-      params.require(:price).permit(:amount, :date_bought, :item_id)
+      params.require(:price).permit(:amount, :date_bought, :item_id, :date, :year, :month)
     end
 end

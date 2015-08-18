@@ -13,11 +13,7 @@ Rails.application.routes.draw do
   get 'items/index'
   get 'types/index'
   get 'summary' => 'prices#summary'
-  get 'input' => 'prices#input'
-
-### still trying to get parameters to work --------
-###  map.connect 'summary/:year/:month', :controller => 'prices', :requirements => { :year => /\d{4}/ , :month => /\d{2}/ }
-###  match 'summary/date' => 'prices#summary', :via => :get
+  
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 

@@ -1,15 +1,18 @@
-<p id="notice"><%= notice %></p>
+<p id="alert"><%= alert %></p>
 
 <%= form_tag(summary_path, method: :get) do %>
   <p>
-    <%= select_month params[:month] %>
-    <%= select_year params[:year] %>
+    <%= label_tag 'Month' %>
+    <%= number_field_tag 'month', Time.now.month.to_s, min: '1' ,  max: '12' %>
+    <%= label_tag 'Year' %>
+    <%= number_field_tag 'year', Time.now.year.to_s, min: (Time.now.year - 2).to_s, max: Time.now.year.to_s %>
     <%= submit_tag "Summarise", :name => nil %>
   </p>
 <% end %>
 
-<h1 class="index_title">MONTHLY SUMMARY FOR <%= params[:year] %> <%= params[:month] %></h1>
+<h1 class="index_title">MONTHLY SUMMARY FOR <%= params[:month] %> <%= params[:year] %></h1>
 
+<% if params[:month] != nil && params[:month] != "" %>
 <table>
   <tbody>
     <% grand_total = 0 %>
@@ -41,5 +44,5 @@
     
   </tbody>
 </table>
-
+<% end %>
 <br>
