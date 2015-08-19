@@ -6,9 +6,9 @@
   <div id="index_wrapper">
     <div class="row">
       <div class="index_item">
-        <%= price.date_bought %>
-        <%= price.item_id %>
-	      <i class="amount"><%= link_to number_with_precision(price.amount, precision: 2), edit_price_path(price.id)  %></i>
+        <i><%= price.date_bought %></i>
+        <i><%= price.item_id %></i>
+	      <%= link_to number_with_precision(price.amount, precision: 2), edit_price_path(price.id) %>
 	    </div>
       <div class="trash">
         <p><%= link_to(content_tag(:i,nil,class: 'fa fa-trash-o'), price, method: :delete, data: { confirm: "Are you sure?" }) %></p>      

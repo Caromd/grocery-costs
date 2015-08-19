@@ -14,11 +14,9 @@
  *= require_self
  */
  
-  $white_opaque: rgba(250, 250, 250, .3);
+ $white_opaque: rgba(250, 250, 250, .3);
  $white_opaque_text: rgba(250, 250, 250, .6);
  $dark: #1F7972;
- 
- /* MY STYLING */
  
  #action_link {
   font-size: 8px;
@@ -28,8 +26,6 @@
   text-align: right;
   width: 30px;
  }
- 
-
  
  h1 {
   font-size: 20px;
@@ -64,10 +60,6 @@
 
 /* --- */
 
- $white_opaque: rgba(250, 250, 250, .3);
- $white_opaque_text: rgba(250, 250, 250, .6);
- $dark: #1F7972;
-
 * {
 	box-sizing: border-box;
 }
@@ -76,13 +68,13 @@ html {
 }
 
 body {
- 	height: 100%;
+	height: 100%;
 
-  background: -webkit-linear-gradient(90deg, #43cea2 10%, #185a9d 90%); /* Chrome 10+, Saf5.1+ */
-  background:    -moz-linear-gradient(90deg, #43cea2 10%, #185a9d 90%); /* FF3.6+ */
-  background:     -ms-linear-gradient(90deg, #43cea2 10%, #185a9d 90%); /* IE10 */
-  background:      -o-linear-gradient(90deg, #43cea2 10%, #185a9d 90%); /* Opera 11.10+ */
-  background:         linear-gradient(90deg, #43cea2 10%, #185a9d 90%); /* W3C */
+  background: -webkit-gradient(linear, 0 100%, 0 0, color-stop(0.1, #43cea2), color-stop(0.9, #185a9d));
+  background: -webkit-linear-gradient(90deg, #43cea2 10%, #185a9d 90%);
+  background: -moz-linear-gradient(90deg, #43cea2 10%, #185a9d 90%);
+  background: -o-linear-gradient(90deg, #43cea2 10%, #185a9d 90%);
+  background: linear-gradient(90deg, #43cea2 10%, #185a9d 90%); /* Chrome 10+, Saf5.1+ */ /* FF3.6+ */ /* IE10 */ /* Opera 11.10+ */ /* W3C */
         
   font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
@@ -155,7 +147,7 @@ body {
 		.index_item {
 			width: 90%;
 			float: left;
-			.p {
+			p {
 				margin: 0;
 				padding: 1em;
 				color: $dark;
@@ -163,7 +155,8 @@ body {
 			    font-size: 20px;
 			    font-color: $dark;
 			}
-			.amount {width: 50%; text-align: right;}
+			i {width: 100px};
+			a {width: 100px; text-align: right;}
 		}
 		.trash {
 			width: 10%;
