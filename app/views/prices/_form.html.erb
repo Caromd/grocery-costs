@@ -14,14 +14,12 @@
   <div class="field">
     <%= f.text_field :amount, :autocomplete => :off  %>
   </div>
-  <br>
+  <div class="field">
+    <%= f.collection_select(:item_id, Item.all, :id, :name) %>
+  </div>
   <div class="field">
     <%= f.date_select :date_bought, :autocomplete => :off  %>
   </div>
-  <br>
-  <div class="field">
-    <%= f.collection_select(:item_id, Item.all, :id, :name) %>
-  </div>  
   <br>
   <div class="actions">
     <%= f.submit %>

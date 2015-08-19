@@ -201,13 +201,13 @@ label {
 	color: $dark;
 }
 input[type="text"], textarea {
-	width: 80%;
+	width: 40%;
 	margin: 0.5em 2% 1em 20px;
 	display: inline-block;
 	outline: none;
 	background: rgba(250,250,250,.4);
 	border: none;
-	height: 40px;
+	height: 50px;
 	border-radius: 4px;
 	padding: 1em 2em;
 }
@@ -215,14 +215,23 @@ input[type="text"], textarea {
 #item_type_id, #price_item_id {
 	width: 40%;
 	margin: .5em 2% 1em 20px;
-	display: inline-block;
 	outline: none;
 	background: rgba(250,250,250,.4);
 	border: none;
-	height: 40px;
-/*	width: 200px;*/
+	height: 50px;
 	border-radius: 4px;
 	padding: 1em 2em;
+}
+
+#price_date_bought_1i, #price_date_bought_2i, #price_date_bought_3i {
+	width: 25%;
+	margin: .5em 2% 1em 20px;
+	outline: none;
+	background: rgba(250,250,250,.4);
+	border: none;
+	height: 50px;
+	border-radius: 4px;
+	padding: 1em 1em;
 }
 
 
@@ -233,6 +242,9 @@ input[type="text"], textarea {
 	}
 }
 
+#back {
+	margin: 0 0 0 30px;
+}
 /* CD */
 
 textarea {
