@@ -147,14 +147,6 @@ body {
 		.index_item {
 			width: 90%;
 			float: left;
-			p {
-				margin: 0;
-				padding: 1em;
-				color: $dark;
-				font-weight: 100;
-			    font-size: 20px;
-			    font-color: $dark;
-			}
 			i {width: 100px};
 			a {width: 100px; text-align: right;}
 		}
@@ -234,6 +226,16 @@ input[type="text"], textarea {
 		.summary_amount {width: 50%; text-align: right;}
 	}
 }
+
+#prices_wrapper {
+	.prices_row {width: 100%; padding-left: 30px; padding-right:30px;
+		.prices_date {width: 25%;float: left;display:inline;}
+		.prices_item {width: 10%;display:inline;}
+		.prices_amount {width: 10%; text-align: right;float: right;display:inline;}
+		.trash {width: 10%;	float: right;display:inline;}
+	}
+}
+
 
 #back {
 	margin: 0 0 0 30px;
