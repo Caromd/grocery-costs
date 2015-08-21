@@ -18,48 +18,6 @@
  $white_opaque_text: rgba(250, 250, 250, .6);
  $dark: #1F7972;
  
- #action_link {
-  font-size: 8px;
- }
- 
- #amount {
-  text-align: right;
-  width: 30px;
- }
- 
- h1 {
-  font-size: 20px;
- }
- 
-/* table td, table th {
-    padding-right: 10px;
-    font-size: 20px;
-}*/
-
-#type_total {
-  font-size: 16px;
-  color: blue;
-  font-weight: bold;
-}
-
-.total_box {
-	background: $white_opaque;
-	margin: .5em auto 1em auto;
-  	border-radius: 1px;
-	-webkit-box-shadow: 0 0 4px 3px rgba(0,0,0,.3);
-	box-shadow: 0 0 2px 2px rgba(0,0,0,.03);
-	padding: 0.5em 0;
- }
- 
-#grand_total {
-  font-size: 20px;
-  color: red;
-  font-weight: bold;
-  
- }
-
-/* --- */
-
 * {
 	box-sizing: border-box;
 }
@@ -89,7 +47,9 @@ body {
     clear: both;
 }
 
-#notice {
+h1 {font-size: 20px;}
+
+#notice, #alert {
 	text-align: center;
 	font-size: 0.6em;
 	color: $dark;
@@ -165,7 +125,6 @@ body {
 			}
 		}
 	}
-
 }
 
 .links {
@@ -179,12 +138,9 @@ body {
 	}
 }
 
-.forms {
-	padding: 0 5%;
-}
-label {
-	color: $dark;
-}
+.forms {padding: 0 5%;}
+label {color: $dark;}
+
 input[type="text"], textarea {
 	width: 40%;
 	margin: 0.5em 2% 1em 20px;
@@ -192,10 +148,24 @@ input[type="text"], textarea {
 	outline: none;
 	background: rgba(250,250,250,.4);
 	border: none;
-	height: 50px;
+	height: 40px;
 	border-radius: 4px;
 	padding: 1em 2em;
 }
+
+input[type="number"] {
+	width: 25%;
+	margin: 0.5em 2% 1em 20px;
+	display: inline-block;
+	outline: none;
+	background: rgba(250,250,250,.4);
+	border: none;
+	height: 40px;
+	border-radius: 4px;
+	padding-left: 2em;
+}
+
+
 /* CD START */
 #item_type_id, #price_item_id {
 	width: 40%;
@@ -203,9 +173,9 @@ input[type="text"], textarea {
 	outline: none;
 	background: rgba(250,250,250,.4);
 	border: none;
-	height: 50px;
+	height: 40px;
 	border-radius: 4px;
-	padding: 1em 2em;
+	padding-left: 2em;
 }
 
 #price_date_bought_1i, #price_date_bought_2i, #price_date_bought_3i {
@@ -214,16 +184,23 @@ input[type="text"], textarea {
 	outline: none;
 	background: rgba(250,250,250,.4);
 	border: none;
-	height: 50px;
+	height: 40px;
 	border-radius: 4px;
-	padding: 1em 1em;
+	padding-left: 2em;
 }
 
 
-#summary_wrapper {
-	.summary_row {width: 100%;padding-left: 50px;
+#summary_wrapper1 {
+	.summary_row {width: 100%;padding-left: 50px; padding-right: 50px;
+		.summary_item {	width: 50%;	float: left;display:inline;}
+		.summary_amount {width: 50%; text-align: right; float: right; display:inline;}
+	}
+}
+
+#summary_wrapper2 {
+	.summary_row {width: 100%;padding-left: 50px; padding-right: 50px;font-weight: bold;border-style: solid;border-color: white; border-radius: 1px;
 		.summary_item {	width: 50%;	float: left;}
-		.summary_amount {width: 50%; text-align: right;}
+		.summary_amount {width: 50%; text-align: right; float: right;}
 	}
 }
 
