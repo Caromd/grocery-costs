@@ -25,7 +25,6 @@ class PricesController < ApplicationController
   # GET /prices.json
   def index
     @prices = Price.all
-#    @item = Item.find(@prices.item_id)
   end
 
   # GET /prices/1

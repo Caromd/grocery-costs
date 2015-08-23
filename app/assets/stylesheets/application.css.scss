@@ -28,12 +28,12 @@ html {
 body {
 	height: 100%;
 
-  background: -webkit-gradient(linear, 0 100%, 0 0, color-stop(0.1, #43cea2), color-stop(0.9, #185a9d));
+/*  background: -webkit-gradient(linear, 0 100%, 0 0, color-stop(0.1, #43cea2), color-stop(0.9, #185a9d));
   background: -webkit-linear-gradient(90deg, #43cea2 10%, #185a9d 90%);
   background: -moz-linear-gradient(90deg, #43cea2 10%, #185a9d 90%);
   background: -o-linear-gradient(90deg, #43cea2 10%, #185a9d 90%);
   background: linear-gradient(90deg, #43cea2 10%, #185a9d 90%); /* Chrome 10+, Saf5.1+ */ /* FF3.6+ */ /* IE10 */ /* Opera 11.10+ */ /* W3C */
-        
+ background-image: url(groceries.jpg);
   font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
 
@@ -59,7 +59,8 @@ h1 {font-size: 20px;}
 .container {
 	width: 50%;
 	max-width: 500px;
-	background: $white_opaque;
+	background: white;
+	opacity: 0.8;
 	margin: 3em auto 0 auto;
 	border-radius: 7px;
 	-webkit-box-shadow: 0 0 4px 3px rgba(0,0,0,.3);
@@ -72,7 +73,7 @@ h1 {font-size: 20px;}
 	font-weight: 700;
 	font-size: 2.5rem;
 	text-transform: uppercase;
-	color: $white_opaque_text;
+	color: $dark;
 	margin: 0;
 	a {
 		text-decoration: none;

@@ -3,10 +3,11 @@
 <h1 class="index_title">Prices</h1>
 
 <% @prices.each do |price| %>
+  <%  @item = Item.find(price.item_id) %>
   <div id="prices_wrapper">
     <div class="prices_row">
       <div class="prices_date">   <%= price.date_bought %></div>
-      <div class="prices_item">   <%= price.item_id %></div>
+      <div class="prices_item">   <%= @item.name %></div>
 	    <div class="prices_amount"> <%= link_to number_with_precision(price.amount, precision: 2), edit_price_path(price.id) %></div>
       <div class="trash">         <%= link_to(content_tag(:i,nil,class: 'fa fa-trash-o'), price, method: :delete, data: { confirm: "Are you sure?" }) %> </div>
     </div>
