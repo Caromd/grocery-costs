@@ -1,7 +1,5 @@
 class PricesController < ApplicationController
   before_action :set_price, only: [:show, :edit, :update, :destroy]
-#  before_action :set_item, only: [:index]
-
 
   def summary
 #    if (params[:month] != "" && params[:year] != "")  && (params[:month] != nil && params[:year] != nil)
@@ -17,14 +15,13 @@ class PricesController < ApplicationController
       @types = Type.all
     else  
       flash[:alert] = "Please enter month and year to summarise"
-      #redirect_to @summary
     end
   end
   
   # GET /prices
   # GET /prices.json
   def index
-    @prices = Price.all
+    @prices = Price.all.includes(:item)
   end
 
   # GET /prices/1
@@ -87,10 +84,6 @@ class PricesController < ApplicationController
       @price = Price.find(params[:id])
     end
     
-    def set_item
-      @item = Item.find(params[:item_id])
-    end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def price_params
       params.require(:price).permit(:amount, :date_bought, :item_id, :date, :year, :month)
