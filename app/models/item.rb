@@ -1,6 +1,6 @@
 class Item < ActiveRecord::Base
   belongs_to :type
-  has_many :prices
+  has_many :prices, dependent: :restrict_with_error
   validates_presence_of :name, :type_id
 #  default_scope  { order(:type_id, :name) }
   

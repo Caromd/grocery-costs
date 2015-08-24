@@ -39,9 +39,14 @@ class TypesController < ApplicationController
   end
 
   def destroy
-    @type.destroy
+#    @type.destroy
+    if @type.destroy
+      message = "Type destroyed successfully"
+    else
+      message = "**** TYPE COULD NOT BE DESTROYED ****"
+    end
     respond_to do |format|
-      format.html { redirect_to types_url, notice: 'Type was successfully destroyed.' }
+      format.html { redirect_to types_url, notice: message }
       format.json { head :no_content }
     end
   end

@@ -12,7 +12,7 @@
 
 <% if params[:month] != nil && params[:month] != "" %>
 
-<h1 class="index_title">SUMMARY FOR <%= Date::MONTHNAMES[params[:month].to_i] %> <%= params[:year] %></h1>
+<h1 class="page_title">SUMMARY FOR <%= Date::MONTHNAMES[params[:month].to_i] %> <%= params[:year] %></h1>
 <br>
     <% grand_total = 0 %>
     <% @types.each do |type| %>
