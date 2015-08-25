@@ -138,6 +138,7 @@ h1 {font-size: 20px;}
 label {color: $dark;}
 
 #form {padding-left: 10px};
+#summary-form {padding-left: 70px};
 
 input[type="text"], textarea {
 	width: 40%;
@@ -162,6 +163,9 @@ input[type="number"] {
 	border-radius: 4px;
 	padding-left: 1em;
 }
+
+input#year {width: 20%; margin-left: 0;}
+input#month {width: 12%}
 
 #item_type_id, #price_item_id {
 	width: 40%;

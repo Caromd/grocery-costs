@@ -1,14 +1,21 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
-
-    <%= link_to "GROCERIES", root_path, id: "logo" %>
-    <nav>
+<nav class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+      </button>
+      <%= link_to "GROCERIES", root_path, id: "logo" %>
+    </div>
+    
+    <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Types",   types_path %></li>
         <li><%= link_to "Items",   items_path %></li>
         <li><%= link_to "Prices", root_path %></li>
         <li><%= link_to "Summary", summary_path %></li>
-        <li>"    "</li>
       </ul>
-    </nav>
-
-</header>
+    </div>
+  </div>
+</nav>

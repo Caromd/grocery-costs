@@ -1,6 +1,6 @@
 <p id="alert"><%= alert %></p>
 
-<div id="form">
+<div id="summary-form">
   <%= form_tag(summary_path, method: :get) do %>
   <p>
     <%= number_field_tag 'month', Time.now.month.to_s, min: '1' ,  max: '12' %>
@@ -42,7 +42,7 @@
     <% end %>        
     <div id="summary_wrapper2">
       <div class="summary_row">
-        <p> ----------------------------------------------- </p>
+        <p> =================================== </p>
         <p class="summary_item"><%= 'MONTH TOTAL:' %></p>
         <p class="summary_amount"><%= number_with_precision(grand_total, precision: 2) %></p>
       </div>
