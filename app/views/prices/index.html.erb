@@ -3,16 +3,12 @@
 <h1 class="page_title">Prices</h1>
 <br>
 
-<div>
-  <div id="form">
     <%= form_for([@price, @prices.build]) do |f| %>
-	    <%= f.text_field :amount, :autocomplete => :off, placeholder: "New Price..." %>
-	    <%= f.collection_select(:item_id, Item.all.order('name'), :id, :name) %>
-	    <%= f.date_select :date_bought, :autocomplete => :off %>
-	    <%= f.submit %>
+    	<div class="field"><%= f.collection_select(:item_id, Item.all.order('name'), :id, :name) %></div>
+ 	    <div class="field"><%= f.text_field :amount, :autocomplete => :off, placeholder: "New Price..." %></div>
+	    <div class="field"><%= f.date_select :date_bought, :autocomplete => :off %></div>
+	    <div class="field"><%= f.submit %></div>
     <% end %>
-  </div>
-</div>
 
 <br>
 

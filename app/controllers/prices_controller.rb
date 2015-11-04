@@ -22,6 +22,7 @@ class PricesController < ApplicationController
   # GET /prices.json
   def index
     @prices = Price.all.includes(:item)
+#    @price = Price.new
   end
 
   # GET /prices/1
@@ -48,7 +49,7 @@ class PricesController < ApplicationController
         format.html { redirect_to prices_path, notice: 'Price was successfully created.' }
         format.json { render :index, status: :created, location: @price }
       else
-        format.html { render :new }
+        format.html { redirect_to prices_path, notice: @price.errors }
         format.json { render json: @price.errors, status: :unprocessable_entity }
       end
     end

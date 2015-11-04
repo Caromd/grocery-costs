@@ -8,3 +8,15 @@
     </div>
   </div>
 <% end %>
+
+
+<div>
+  <div id="form">
+    <%= form_for([@price, @prices.build]) do |f| %>
+	      <%= f.text_field :amount, :autocomplete => :off, placeholder: "New Price..." %>
+	      <%= f.collection_select(:item_id, Item.all.order('name'), :id, :name) %>
+	      <%= f.date_select :date_bought, :autocomplete => :off %>
+	      <%= f.submit %>
+    <% end %>
+  </div>
+</div>

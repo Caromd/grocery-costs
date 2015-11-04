@@ -2,6 +2,16 @@
 
 <h1 class="page_title">ITEMS</h1>
 
+<div id="index_wrapper">
+  <div id="form">
+      <%= form_for([@item, @items.build]) do |f| %>
+	      <%= f.text_field :name, placeholder: "New Item..." %>
+	      <%= f.collection_select(:type_id, Type.all, :id, :name) %>
+	    <%= f.submit %>
+    <% end %>
+  </div>
+</div>
+
 <% @items.each do |item| %>
   <div id="index_wrapper">
     <div class="row">
@@ -14,13 +24,3 @@
     </div>
   </div>
 <% end %>
-
-<div id="index_wrapper">
-  <div id="form">
-      <%= form_for([@item, @items.build]) do |f| %>
-	      <%= f.text_field :name, placeholder: "New Item..." %>
-	      <%= f.collection_select(:type_id, Type.all, :id, :name) %>
-	    <%= f.submit %>
-    <% end %>
-  </div>
-</div>
