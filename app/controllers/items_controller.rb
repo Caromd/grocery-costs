@@ -1,10 +1,11 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /items
   # GET /items.json
   def index
-    @items = Item.all.order("name")
+    @items = current_user.items.all.order('name asc')
   end
 
   # GET /items/1
@@ -14,7 +15,7 @@ class ItemsController < ApplicationController
 
   # GET /items/new
   def new
-    @item = Item.new
+    @item = current_user.items.build
   end
 
   # GET /items/1/edit
@@ -25,7 +26,7 @@ class ItemsController < ApplicationController
   # POST /items.json
   def create
     flash[:notice] = "Parameters: &item_params"
-    @item = Item.new(item_params)
+    @item = current_user.items.build(item_params)
 
     respond_to do |format|
       if @item.save

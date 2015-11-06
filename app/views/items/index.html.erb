@@ -4,7 +4,7 @@
   <div id="form">
       <%= form_for([@item, @items.build]) do |f| %>
 	      <%= f.text_field :name, placeholder: "New Item..." %>
-	      <%= f.collection_select(:type_id, Type.all, :id, :name) %>
+	      <%= f.collection_select(:type_id, current_user.types.order(:name), :id, :name) %>
 	    <%= f.submit %>
     <% end %>
   </div>

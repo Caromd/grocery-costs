@@ -1,18 +1,17 @@
 class PricesController < ApplicationController
   before_action :set_price, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   def summary
-#    if (params[:month] != "" && params[:year] != "")  && (params[:month] != nil && params[:year] != nil)
     if (params[:month] != "" && params[:month] != nil)
       month=params[:month].to_i
       year=params[:year].to_i
       dt = DateTime.new(year, month,1)
       bom = dt.beginning_of_month
       eom = dt.end_of_month
-      @prices = Price.where("date_bought >= ? and date_bought <= ?", bom, eom)
-#     @prices = Price.summary(params[:year], params[:month])
-      @items = Item.all
-      @types = Type.all
+      @prices = current_user.prices.where("date_bought >= ? and date_bought <= ?", bom, eom)
+      @items = current_user.items.all
+      @types = current_user.types.all
     else  
       flash[:alert] = "Please enter month and year to summarise"
     end
@@ -21,8 +20,7 @@ class PricesController < ApplicationController
   # GET /prices
   # GET /prices.json
   def index
-    @prices = Price.all.includes(:item)
-#    @price = Price.new
+    @prices = current_user.prices.all.includes(:item)
   end
 
   # GET /prices/1
@@ -32,7 +30,7 @@ class PricesController < ApplicationController
 
   # GET /prices/new
   def new
-    @price = Price.new
+    @price = current_user.prices.build
   end
 
   # GET /prices/1/edit
@@ -42,7 +40,7 @@ class PricesController < ApplicationController
   # POST /prices
   # POST /prices.json
   def create
-    @price = Price.new(price_params)
+    @price = current_user.prices.build(price_params)
 
     respond_to do |format|
       if @price.save

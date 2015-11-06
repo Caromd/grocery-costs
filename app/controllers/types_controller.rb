@@ -1,19 +1,20 @@
 class TypesController < ApplicationController
   before_action :set_type, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   def index
-    @types = Type.all
+    @types = current_user.types.all.order('name asc')
   end
 
   def new
-    @type = Type.new
+    @type = current_user.types.build
   end
 
   def edit
   end
 
   def create
-    @type = Type.new(type_params)
+    @type = current_user.types.build(type_params)
 
     respond_to do |format|
       if @type.save

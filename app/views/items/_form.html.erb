@@ -15,7 +15,7 @@
     <%= f.text_field :name, :autocomplete => :off %>
   </div>
   <div class="field">
-    <%= f.collection_select(:type_id, Type.all, :id, :name) %>
+    <%= f.collection_select(:type_id, current_user.types.order(:name), :id, :name) %>
   </div>
   <div class="actions">
     <%= f.submit %>
