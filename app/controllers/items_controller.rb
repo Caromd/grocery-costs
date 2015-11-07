@@ -25,7 +25,6 @@ class ItemsController < ApplicationController
   # POST /items
   # POST /items.json
   def create
-    flash[:notice] = "Parameters: &item_params"
     @item = current_user.items.build(item_params)
 
     respond_to do |format|
@@ -33,7 +32,7 @@ class ItemsController < ApplicationController
         format.html { redirect_to items_path, notice: 'Item ' + @item.name + ' was successfully created.' }
         format.json { render :show, status: :created, location: @item }
       else
-        format.html { render :new }
+        format.html { redirect_to items_path, alert: @item.errors.full_messages.first }
         format.json { render json: @item.errors, status: :unprocessable_entity }
       end
     end

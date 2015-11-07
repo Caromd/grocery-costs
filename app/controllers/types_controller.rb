@@ -21,7 +21,7 @@ class TypesController < ApplicationController
         format.html { redirect_to types_path, notice: 'Type was successfully created.' }
         format.json { render :index, status: :created, location: @type }
       else
-        format.html { render :new }
+        format.html { redirect_to types_path, alert: @type.errors.full_messages.first }
         format.json { render json: @type.errors, status: :unprocessable_entity }
       end
     end

@@ -47,7 +47,7 @@ class PricesController < ApplicationController
         format.html { redirect_to prices_path, notice: 'Price was successfully created.' }
         format.json { render :index, status: :created, location: @price }
       else
-        format.html { redirect_to prices_path, notice: @price.errors }
+        format.html { redirect_to prices_path, alert: @price.errors.full_messages.first }
         format.json { render json: @price.errors, status: :unprocessable_entity }
       end
     end
