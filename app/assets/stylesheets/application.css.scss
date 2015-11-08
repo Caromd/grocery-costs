@@ -50,11 +50,11 @@ html {
 
 body {
 	height: 100%;
-	background-image: url(groceries.jpg);
+	background-image: url(Groceries.png);
   	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
   	padding-top: 60px;
- 	@media only screen and (max-width: 767px) {font-size: 0.7em;}
-/*  	@media only screen and (min-width: 768px) and (max-width: 1023px) {font-size: 0.8em;}
+ 	@media only screen and (max-width: 767px) {font-size: 0.75em; background-image: none;}
+/*  @media only screen and (min-width: 768px) and (max-width: 1023px) {font-size: 0.8em;}
 	@media only screen and (min-width: 1024px) {font-size: 1.2em;} */
 }
 

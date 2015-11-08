@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(version: 20151104145723) do
 
   create_table "items", force: :cascade do |t|
-    t.string   "name"
+    t.string   "name", null: false
     t.integer  "type_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20151104145723) do
   add_index "items", ["type_id"], name: "index_items_on_type_id"
 
   create_table "prices", force: :cascade do |t|
-    t.decimal  "amount"
+    t.decimal  "amount", null: false
     t.date     "date_bought"
     t.integer  "item_id"
     t.datetime "created_at",  null: false
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20151104145723) do
   add_index "prices", ["item_id"], name: "index_prices_on_item_id"
 
   create_table "types", force: :cascade do |t|
-    t.string   "name"
+    t.string   "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
