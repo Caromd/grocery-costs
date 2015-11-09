@@ -54,8 +54,6 @@ body {
   	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
   	padding-top: 60px;
  	@media only screen and (max-width: 767px) {font-size: 0.75em; background-image: none;}
-/*  @media only screen and (min-width: 768px) and (max-width: 1023px) {font-size: 0.8em;}
-	@media only screen and (min-width: 1024px) {font-size: 1.2em;} */
 }
 
 .clearfix:before,
@@ -261,17 +259,7 @@ label {
 	}
 }
 
-/*#prices_wrapper {
-	.prices_row {width: 100%; padding-left: 30px; padding-right:30px;
-		.prices_date {width: 25%;float: left;display:inline;}
-		.prices_item {width: 10%;display:inline;}
-		.prices_amount {width: 10%; text-align: right;float: right;display:inline;}
-		.trash {width: 10%;	float: right;display:inline;}
-	}
-}*/
-
 #prices_amount {text-align: right};
-
 
 #back {margin: 0 0 0 30px;}
 
@@ -296,4 +284,4 @@ input[type="submit"] {
 }
 ::-webkit-input-placeholder { color: $dark; }
 
-.navbar-right {width: 500px};
+.navbar-right {width: 600px};

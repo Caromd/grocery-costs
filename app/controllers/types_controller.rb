@@ -40,7 +40,6 @@ class TypesController < ApplicationController
   end
 
   def destroy
-#    @type.destroy
     if @type.destroy
       message = "Type destroyed successfully"
     else
