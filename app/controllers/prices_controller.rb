@@ -17,23 +17,14 @@ class PricesController < ApplicationController
     end
   end
   
-  # GET /prices
-  # GET /prices.json
   def index
     @prices = current_user.prices.all.includes(:item)
   end
 
-  # GET /prices/1
-  # GET /prices/1.json
-  def show
-  end
-
-  # GET /prices/new
   def new
     @price = current_user.prices.build
   end
 
-  # GET /prices/1/edit
   def edit
   end
 
