@@ -3,11 +3,12 @@ Rails.application.routes.draw do
   resources :prices
   resources :items
   resources :types
+  resources :shopping_days
 
-  root 'prices#index'
+  root 'shopping_days#new'
 
   get 'items/index'
   get 'types/index'
-  get 'summary' => 'prices#summary'
+  get 'summary' => 'shopping_days#summary'
   
 end

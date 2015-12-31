@@ -20,3 +20,18 @@
     <% end %>
   </div>
 </div>
+
+
+
+==============
+from prices 
+<br>
+
+    <%= form_for([@price, @prices.build]) do |f| %>
+    	<div class="field"><%= f.collection_select(:item_id, current_user.items.all.order(:name), :id, :name) %></div>
+ 	    <div class="field"><%= f.text_field :amount, :autocomplete => :off, placeholder: "New Price..." %></div>
+	    <div class="field"><%= f.date_select :date_bought, :autocomplete => :off %></div>
+	    <div class="field"><%= f.submit %></div>
+    <% end %>
+
+<br>

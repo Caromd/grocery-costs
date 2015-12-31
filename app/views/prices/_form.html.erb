@@ -14,7 +14,6 @@
 
   <%= f.text_field :amount, :autocomplete => :off  %>
   <%= f.collection_select(:item_id, current_user.items.all.order(:name), :id, :name) %>
-  <%= f.date_select :date_bought, :autocomplete => :off  %>
   <%= f.submit %>
   
 <% end %>

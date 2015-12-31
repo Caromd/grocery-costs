@@ -87,7 +87,7 @@ h1 {font-size: 3em;}
 .page_title {
 	text-align: center;
 	font-weight: 700;
-	font-size: 2.5em;
+	font-size: 2em;
 	text-transform: uppercase;
 	color: $dark;
 	margin: 0;
@@ -175,13 +175,47 @@ input[type="password"] {
 }
 
 input[type="number"] {
-	width: 90%;
+	width: 30%;
 	margin: 0.5em 2% .5em 20px;
 	display: inline-block;
 	outline: none;
 	background: $grey_opaque;
 	border: none;
 	height: 40px;
+	border-radius: 4px;
+	padding-left: 1em;
+}
+
+input[type="text"] {
+	width: 30%;
+	margin: 0.1em 2% 0.1em 20px;
+	display: inline-block;
+	outline: none;
+	background: $grey_opaque;
+	border: none;
+	height: 35px;
+	border-radius: 4px;
+	padding-left: 1em;
+}
+
+#shopping_day_prices_attributes_0_item_id,
+#shopping_day_prices_attributes_1_item_id,
+#shopping_day_prices_attributes_2_item_id,
+#shopping_day_prices_attributes_3_item_id,
+#shopping_day_prices_attributes_4_item_id,
+#shopping_day_prices_attributes_5_item_id,
+#shopping_day_prices_attributes_6_item_id,
+#shopping_day_prices_attributes_7_item_id,
+#shopping_day_prices_attributes_8_item_id,
+#shopping_day_prices_attributes_9_item_id
+{
+	width: 30%;
+	margin: 0.1em 2% 0.1em 20px;
+	display: inline-block;
+	outline: none;
+	background: $grey_opaque;
+	border: none;
+	height: 35px;
 	border-radius: 4px;
 	padding-left: 1em;
 }
@@ -212,8 +246,8 @@ label {
 	padding-left: 1em;
 }
 
-#price_date_bought_1i {
-	width: 30%;
+#shopping_day_date_bought_1i {
+	width: 18%;
 	margin: .5em 2% .5em 20px;
 	outline: none;
 	background: $grey_opaque;
@@ -223,8 +257,8 @@ label {
 	padding-left: 1em;
 }
 
-#price_date_bought_2i {
-	width: 30%;
+#shopping_day_date_bought_2i {
+	width: 24%;
 	margin: .5em 2% .5em 0;
 	outline: none;
 	background: $grey_opaque;
@@ -234,8 +268,8 @@ label {
 	padding-left: 1em;
 }
 
-#price_date_bought_3i {
-	width: 20%;
+#shopping_day_date_bought_3i {
+	width: 15%;
 	margin: .5em 2% .5em 0;
 	outline: none;
 	background: $grey_opaque;

@@ -1,0 +1,14 @@
+<h1 class="page_title">PRICES</h1>
+
+<% @shopping_days.each do |shopping| %>
+  <div id="index_wrapper">
+    <div class="row">
+      <div class="index_item">  
+        <p><%= link_to shopping.date_bought, edit_shopping_day_path(shopping.id) %></p>
+	    </div>
+      <div class="trash">
+        <p><%= link_to(content_tag(:i,nil,class: 'fa fa-trash-o'), shopping, method: :delete, data: { confirm: "Are you sure?" }) %></p>      
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -1,20 +1,10 @@
 <h1 class="page_title">Prices</h1>
-<br>
-
-    <%= form_for([@price, @prices.build]) do |f| %>
-    	<div class="field"><%= f.collection_select(:item_id, current_user.items.all.order(:name), :id, :name) %></div>
- 	    <div class="field"><%= f.text_field :amount, :autocomplete => :off, placeholder: "New Price..." %></div>
-	    <div class="field"><%= f.date_select :date_bought, :autocomplete => :off %></div>
-	    <div class="field"><%= f.submit %></div>
-    <% end %>
-
-<br>
 
 <div class="table-responsive">
   <table class="table">
     <% @prices.each do |price| %>
       <tr>
-        <td class="col-md-1"> <%= price.date_bought %></td>
+        
         <td class="col-md-1"> <%= price.item.name %></td>
         <td class="col-md-1" id="prices_amount"> <%= link_to number_with_precision(price.amount, precision: 2), edit_price_path(price.id) %></td>
         <td class="col-md-1"> <%= link_to(content_tag(:i,nil,class: 'fa fa-trash-o'), price, method: :delete, data: { confirm: "Are you sure?" }) %> </td>

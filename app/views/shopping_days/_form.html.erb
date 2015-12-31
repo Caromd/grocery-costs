@@ -1,0 +1,23 @@
+<%= form_for(@shopping_day) do |f| %>
+  <% if @shopping_day.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@shopping_day.errors.count, "error") %> prohibited this day from being saved:</h2>
+
+      <ul>
+      <% @shopping_day.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.date_select :date_bought, :autocomplete => :off  %>
+  <%= f.fields_for :prices do |ff| %>
+    <p>
+      <%= ff.text_field :amount, :autocomplete => :off, :rows => 10, placeholder: 'Enter Price'  %>
+      <%= ff.collection_select(:item_id, current_user.items.all.order(:name), :id, :name, :rows => 10, prompt: 'Enter item') %>
+      <%= ff.label :_destroy, "X" %>
+    </p>
+  <% end %>
+  <%= f.submit "Create"%>
+<% end %>

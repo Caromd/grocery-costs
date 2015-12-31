@@ -1,10 +1,10 @@
 class Price < ActiveRecord::Base
   belongs_to :user
   belongs_to :item
+  belongs_to :shopping_days
   validates_presence_of :item
   validates :amount, presence: true
-  validates :date_bought, presence: true
-  default_scope  { order(:date_bought => :desc) }
+#  default_scope  { order(:date_bought => :desc) }
 
   def subtotal
     amount

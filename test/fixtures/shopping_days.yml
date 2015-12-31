@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date_bought: 2015-12-31
+  user_id: 
+
+two:
+  date_bought: 2015-12-31
+  user_id: 

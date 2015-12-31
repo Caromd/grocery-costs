@@ -11,10 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151104145723) do
+ActiveRecord::Schema.define(version: 20151231130907) do
 
   create_table "items", force: :cascade do |t|
-    t.string   "name", null: false
+    t.string   "name"
     t.integer  "type_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -24,18 +24,28 @@ ActiveRecord::Schema.define(version: 20151104145723) do
   add_index "items", ["type_id"], name: "index_items_on_type_id"
 
   create_table "prices", force: :cascade do |t|
-    t.decimal  "amount", null: false
-    t.date     "date_bought"
+    t.decimal  "amount"
     t.integer  "item_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.integer  "user_id"
+    t.integer  "shopping_day_id"
   end
 
   add_index "prices", ["item_id"], name: "index_prices_on_item_id"
+  add_index "prices", ["shopping_day_id"], name: "index_prices_on_shopping_day_id"
+
+  create_table "shopping_days", force: :cascade do |t|
+    t.date     "date_bought"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "shopping_days", ["user_id"], name: "index_shopping_days_on_user_id"
 
   create_table "types", force: :cascade do |t|
-    t.string   "name", null: false
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"

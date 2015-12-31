@@ -2,21 +2,6 @@ class PricesController < ApplicationController
   before_action :set_price, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
-  def summary
-    if (params[:month] != "" && params[:month] != nil)
-      month=params[:month].to_i
-      year=params[:year].to_i
-      dt = DateTime.new(year, month,1)
-      bom = dt.beginning_of_month
-      eom = dt.end_of_month
-      @prices = current_user.prices.where("date_bought >= ? and date_bought <= ?", bom, eom)
-      @items = current_user.items.all
-      @types = current_user.types.all
-    else  
-      flash[:alert] = "Please enter month and year to summarise"
-    end
-  end
-  
   def index
     @prices = current_user.prices.all.includes(:item)
   end
@@ -28,8 +13,6 @@ class PricesController < ApplicationController
   def edit
   end
 
-  # POST /prices
-  # POST /prices.json
   def create
     @price = current_user.prices.build(price_params)
 
@@ -44,8 +27,6 @@ class PricesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /prices/1
-  # PATCH/PUT /prices/1.json
   def update
     respond_to do |format|
       if @price.update(price_params)
@@ -58,8 +39,6 @@ class PricesController < ApplicationController
     end
   end
 
-  # DELETE /prices/1
-  # DELETE /prices/1.json
   def destroy
     @price.destroy
     respond_to do |format|
@@ -76,6 +55,6 @@ class PricesController < ApplicationController
     
     # Never trust parameters from the scary internet, only allow the white list through.
     def price_params
-      params.require(:price).permit(:amount, :date_bought, :item_id, :date, :year, :month)
+      params.require(:price).permit(:amount, :item_id, :user_id)
     end
 end

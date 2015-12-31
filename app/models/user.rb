@@ -6,4 +6,5 @@ class User < ActiveRecord::Base
   has_many :items
   has_many :types
   has_many :prices
+  has_many :shopping_days
 end
