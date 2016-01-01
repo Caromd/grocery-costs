@@ -9,6 +9,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 
 gem 'devise', '~> 3.5', '>= 3.5.2'
+gem 'nested_form', '~> 0.3.2'
 
 gem 'jquery-rails'
 gem 'turbolinks'

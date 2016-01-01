@@ -2,28 +2,17 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
-  # GET /items
-  # GET /items.json
   def index
     @items = current_user.items.all.order('name asc')
   end
 
-  # GET /items/1
-  # GET /items/1.json
-  def show
-  end
-
-  # GET /items/new
   def new
     @item = current_user.items.build
   end
 
-  # GET /items/1/edit
   def edit
   end
 
-  # POST /items
-  # POST /items.json
   def create
     @item = current_user.items.build(item_params)
 
@@ -52,8 +41,6 @@ class ItemsController < ApplicationController
     end
   end
 
-  # DELETE /items/1
-  # DELETE /items/1.json
   def destroy
     # @item.destroy
     if @item.destroy

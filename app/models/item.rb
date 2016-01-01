@@ -2,8 +2,8 @@ class Item < ActiveRecord::Base
   belongs_to :user
   belongs_to :type
   has_many :prices, dependent: :restrict_with_error
-  validates_presence_of :name, :type_id
-  
+  validates_presence_of :name
+
   def subtotals
     items.map do |i| i.subtotal end
   end

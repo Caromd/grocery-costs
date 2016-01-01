@@ -8,6 +8,9 @@ class TypesController < ApplicationController
 
   def new
     @type = current_user.types.build
+    5.times do
+        @items = @type.items.build
+    end
   end
 
   def edit
@@ -59,6 +62,8 @@ class TypesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def type_params
-      params.require(:type).permit(:name, :user_id)
+      params.require(:type).permit(:name, :user_id,
+      items_attributes: [ :id, :name, :user_id, :_destroy]
+      )
     end
 end

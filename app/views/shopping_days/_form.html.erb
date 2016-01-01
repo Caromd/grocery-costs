@@ -1,4 +1,4 @@
-<%= form_for(@shopping_day) do |f| %>
+<%= nested_form_for(@shopping_day) do |f| %>
   <% if @shopping_day.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@shopping_day.errors.count, "error") %> prohibited this day from being saved:</h2>
@@ -14,10 +14,10 @@
   <%= f.date_select :date_bought, :autocomplete => :off  %>
   <%= f.fields_for :prices do |ff| %>
     <p>
-      <%= ff.text_field :amount, :autocomplete => :off, :rows => 10, placeholder: 'Enter Price'  %>
-      <%= ff.collection_select(:item_id, current_user.items.all.order(:name), :id, :name, :rows => 10, prompt: 'Enter item') %>
-      <%= ff.label :_destroy, "X" %>
-    </p>
+      <%= ff.text_field :amount, :autocomplete => :off, :rows => 5, placeholder: 'Enter Price'  %>
+      <%= ff.collection_select(:item_id, current_user.items.all.order(:name), :id, :name, :rows => 5, prompt: 'Enter item') %>
+      <%= ff.link_to_remove "X" %>
   <% end %>
+  <p><%= f.link_to_add "Add a price", :prices %></p>
   <%= f.submit "Create"%>
 <% end %>

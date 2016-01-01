@@ -25,7 +25,7 @@ class ShoppingDaysController < ApplicationController
 
   def new
     @shopping_day = current_user.shopping_days.build
-    10.times do
+    5.times do
         @prices = @shopping_day.prices.build
     end
   end
@@ -76,7 +76,7 @@ class ShoppingDaysController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def shopping_day_params
       params.require(:shopping_day).permit(:date_bought,  :user_id, :date, :year, :month, 
-      prices_attributes: [ :id, :amount, :name, :item_id, :user_id]
+      prices_attributes: [ :id, :amount, :name, :item_id, :user_id, :_destroy]
       )
     end
 end
