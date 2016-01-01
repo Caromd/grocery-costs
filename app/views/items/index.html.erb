@@ -1,14 +1,6 @@
 <h1 class="page_title">ITEMS</h1>
 
-<div id="index_wrapper">
-  <div id="form">
-      <%= form_for([@item, @items.build]) do |f| %>
-	      <%= f.text_field :name, placeholder: "New Item..." %>
-	      <%= f.collection_select(:type_id, current_user.types.order(:name), :id, :name) %>
-	    <%= f.submit %>
-    <% end %>
-  </div>
-</div>
+<hr>
 
 <% @items.each do |item| %>
   <div id="index_wrapper">
@@ -22,3 +14,5 @@
     </div>
   </div>
 <% end %>
+
+<%= link_to "New Items", new_item_path, id: 'button' %>

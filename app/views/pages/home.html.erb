@@ -1,12 +1,13 @@
 <h1>WELCOME TO THE GROCERY APP...</h1>
 <hr>
+<p>Track your grocery costs painlessly!</p>
 <h2>How it works:</h2>
 <p>
-    <ul>
+    <ol>
         <li><%= link_to "Sign up", new_user_registration_path %> or <%= link_to "log in", new_user_session_path %></li>
         <li>Add <%= link_to "types", types_path %>, for example "Dairy", "Fruit" etc.</li>
         <li>And add <%= link_to "items", items_path %> per type, like "Milk","Cheese","Butter" under "Dairy"</li>
         <li>Then capture your grocery <%= link_to "prices", new_shopping_day_path %> for the shopping date</li>
         <li>Get a <%= link_to "summary", summary_path %> of what you have spent per month</li>
-    </ul>
+    </ol>
 </p>

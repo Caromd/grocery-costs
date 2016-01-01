@@ -12,12 +12,9 @@
   <% end %>
 
   <div class="field">
-    <%= f.text_field :name, :autocomplete => :off %>
-  </div>
-  <div class="field">
+    <%= f.text_field :name, :autocomplete => :off, placeholder: 'Enter item' %>
     <%= f.collection_select(:type_id, current_user.types.order(:name), :id, :name) %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <hr>
+  <div class="actions"><%= f.submit %></div>
 <% end %>

@@ -38,7 +38,7 @@ class ShoppingDaysController < ApplicationController
 
     respond_to do |format|
       if @shopping_day.save
-        format.html { redirect_to shopping_days_path, notice: 'Shopping_day was successfully created.' }
+        format.html { redirect_to shopping_days_path, notice: 'Shopping was successfully created.' }
         format.json { render :index, status: :created, location: @shopping_day }
       else
         format.html { redirect_to shopping_days_path, alert: @shopping_day.errors.full_messages.first }
@@ -50,7 +50,7 @@ class ShoppingDaysController < ApplicationController
   def update
     respond_to do |format|
       if @shopping_day.update(shopping_day_params)
-        format.html { redirect_to shopping_days_path, notice: 'Shopping_day was successfully updated.' }
+        format.html { redirect_to shopping_days_path, notice: 'Shopping was successfully updated.' }
         format.json { render :index, status: :ok, location: @shopping_day }
       else
         format.html { render :edit }
@@ -62,7 +62,7 @@ class ShoppingDaysController < ApplicationController
   def destroy
     @shopping_day.destroy
     respond_to do |format|
-      format.html { redirect_to shopping_days_url, notice: 'Shopping_day was successfully destroyed.' }
+      format.html { redirect_to shopping_days_url, notice: 'Shopping was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

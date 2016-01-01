@@ -3,6 +3,7 @@
   <p>
     <%= number_field_tag 'month', Time.now.month.to_s, min: '1' ,  max: '12' %>
     <%= number_field_tag 'year', Time.now.year.to_s, min: (Time.now.year - 2).to_s, max: Time.now.year.to_s %>
+    <br>
     <%= submit_tag "Summarise", :name => nil %>
   </p>
   <% end %>

@@ -13,13 +13,15 @@
 
   <%= f.date_select :date_bought, :autocomplete => :off  %>
   <hr>
+  <div>
   <%= f.fields_for :prices do |ff| %>
     <p>
-      <%= ff.text_field :amount, :autocomplete => :off, :rows => 5, placeholder: 'Enter Price'  %>
       <%= ff.collection_select(:item_id, current_user.items.all.order(:name), :id, :name, :rows => 5, prompt: 'Enter item') %>
+      <%= ff.text_field :amount, :autocomplete => :off, :rows => 5, placeholder: 'Enter Price'  %>
       <%= ff.hidden_field :user_id, value: current_user.id %>
       <%= ff.link_to_remove "X" %>
   <% end %>
-  <p><%= f.link_to_add "Add a price", :prices %></p>
-  <%= f.submit "Create"%>
+  </div>
+  <p><%= f.link_to_add "Add another price", :prices, id: 'button' %></p>
+  <%= f.submit "Save Shopping"%>
 <% end %>
