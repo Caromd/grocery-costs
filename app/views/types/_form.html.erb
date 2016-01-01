@@ -13,15 +13,15 @@
 
   <div class="field"><%= f.text_field :name, :autocomplete => :off, placeholder: 'Enter Type' %></div>
   <hr>
-  
+  <div>
   <%= f.fields_for :items do |ff| %>
-    <p>
       <%= ff.text_field :name, :autocomplete => :off, :rows => 5, placeholder: 'Enter Item'  %>
       <%= ff.hidden_field :user_id, value: current_user.id %>
       <%= ff.link_to_remove "X" %>
   <% end %>
-  <p><%= f.link_to_add "Add item", :items %></p>
-  
-  <%= f.submit "Create"%>
+  <%= f.link_to_add "Add item", :items %>
+  </div>
+  <hr>
+  <%= f.submit %>
 
 <% end %>

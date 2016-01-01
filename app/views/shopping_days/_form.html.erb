@@ -12,10 +12,12 @@
   <% end %>
 
   <%= f.date_select :date_bought, :autocomplete => :off  %>
+  <hr>
   <%= f.fields_for :prices do |ff| %>
     <p>
       <%= ff.text_field :amount, :autocomplete => :off, :rows => 5, placeholder: 'Enter Price'  %>
       <%= ff.collection_select(:item_id, current_user.items.all.order(:name), :id, :name, :rows => 5, prompt: 'Enter item') %>
+      <%= ff.hidden_field :user_id, value: current_user.id %>
       <%= ff.link_to_remove "X" %>
   <% end %>
   <p><%= f.link_to_add "Add a price", :prices %></p>
